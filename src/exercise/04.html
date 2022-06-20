@@ -6,6 +6,8 @@
   <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
   <script type="text/babel">
     // 🐨 Make a function called `message` which returns the JSX we want to share
     function Message({ subject, greeting }) {
@@ -16,15 +18,9 @@
       )
     }
 
-    const PropTypes = {
-      notEmpty(props, propName, componentName) {
-        if (!props[propName]) return new Error(`${propName} should not be empty`)
-      }
-    }
-
     Message.propTypes = {
-      subject: PropTypes.notEmpty,
-      greeting: PropTypes.notEmpty
+      subject: PropTypes.string.isRequired,
+      greeting: PropTypes.string.isRequired
     }
 
     // 🐨 use that function in place of the divs below with:
